@@ -1,0 +1,22 @@
+options:
+  - name: module_name
+    description: Name of the module being generated
+    question: What is the name of the module?
+    required: true
+    type: string
+
+files:
+  - template: Sources/Contract.swift
+    path: "{{ module_name }}/{{ module_name }}Contract.swift"
+  - template: Sources/View.swift
+    path: "{{ module_name }}/{{ module_name }}View.swift"
+  - template: Sources/ViewController.swift
+    path: "{{ module_name }}/{{ module_name }}ViewController.swift"
+  - template: Sources/Interactor.swift
+    path: "{{ module_name }}/{{ module_name }}Interactor.swift"
+  - template: Sources/Presenter.swift
+    path: "{{ module_name }}/{{ module_name }}Presenter.swift"
+  - template: Sources/Router.swift
+    path: "{{ module_name }}/{{ module_name }}Router.swift"
+  - template: Sources/Assembly.swift
+    path: "{{ module_name }}/{{ module_name }}Assembly.swift"
