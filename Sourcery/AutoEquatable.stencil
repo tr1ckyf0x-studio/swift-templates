@@ -1,5 +1,4 @@
-// swiftlint:disable file_length
-
+// swiftlint:disable all
 {% for import in argument.autoMockableImports %}
 import {{ import }}
 {% endfor %}
@@ -78,3 +77,4 @@ extension {{ type.name }}: Equatable {}
     }
 }
 {% endfor %}
+// swiftlint:enable all
