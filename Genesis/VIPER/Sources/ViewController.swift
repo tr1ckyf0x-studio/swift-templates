@@ -1,30 +1,54 @@
-{% set custom_view_name %}{{ module_name|lowerFirstLetter }}View{% endset %}
-{% set viewcontroller_name %}{{ module_name }}ViewController{% endset %}
-{% set view_input_protocol_name %}{{ module_name }}ViewInput{% endset %}
+{% set view_name %}{{ submodule_name }}View{% endset %}
+{% set viewcontroller_name %}{{ submodule_name }}ViewController{% endset %}
+{% set view_input_protocol_name %}{{ submodule_name }}ViewInput{% endset %}
+{% set view_output_protocol_name %}{{ submodule_name }}ViewOutput{% endset %}
+{% set view_delegate_name %}{{ view_name }}Delegate{% endset %}
+//  Created by {{ developer_name }} on {{ current_date }}.
+
 import UIKit
 
-final class {{ viewcontroller_name }}: UIViewController {
+protocol {{ view_input_protocol_name }}: AnyObject {
+}
 
-    private let {{ custom_view_name }} = {{ module_name }}View()
+protocol {{ view_output_protocol_name }} {
+    func viewDidLoad(_ view: {{ view_input_protocol_name }})
+}
 
-    var presenter: {{ module_name }}ViewOutput?
+public final class {{ viewcontroller_name }}: UIViewController {
 
-    override func loadView() {
-        view = {{ custom_view_name }}
+    // MARK: - Properties
+
+    var presenter: {{ view_output_protocol_name }}?
+
+    private lazy var contentView: {{ view_name }} = {
+        let view = {{ view_name }}()
+        view.delegate = self
+        return view
+    }()
+
+    // MARK: - Lifecycle
+
+    override public func loadView() {
+        view = contentView
     }
 
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         presenter?.viewDidLoad(self)
     }
 }
 
 // MARK: - {{ view_input_protocol_name }}
+
 extension {{ viewcontroller_name }}: {{ view_input_protocol_name }} {
-    func configureViews() {
-    }
 }
 
-// MARK: - Private methods
+// MARK: - {{ view_delegate_name }}
+
+extension {{ viewcontroller_name }}: {{ view_delegate_name }} {
+}
+
+// MARK: - Private
+
 extension {{ viewcontroller_name }} {
 }

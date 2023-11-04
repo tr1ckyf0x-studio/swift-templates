@@ -1,0 +1,17 @@
+//  Created by {{ developer_name }} on {{ current_date }}.
+
+protocol {{ submodule_name }}BusinessLogic: AnyObject { }
+
+final class {{ submodule_name }}Interactor: {{ submodule_name }}BusinessLogic {
+    // MARK: - Properties
+
+    private let presenter: {{ submodule_name }}PresentationLogic
+
+    // MARK: - Lifecycle
+
+    init(presenter: {{ submodule_name }}PresentationLogic) {
+        self.presenter = presenter
+    }
+
+    // MARK: - {{ submodule_name }}BusinessLogic
+}

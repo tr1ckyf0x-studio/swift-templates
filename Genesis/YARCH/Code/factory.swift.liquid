@@ -1,0 +1,28 @@
+//  Created by {{ developer_name }} on {{ current_date }}.
+
+import RouteComposer
+
+public struct {{ submodule_name }}Factory: Factory {
+
+    // MARK: - Properties
+
+    private let router: {{ submodule_name }}Routes
+
+    // MARK: - Lifecycle
+
+    public init(router: {{ submodule_name }}Routes) {
+        self.router = router
+    }
+
+    // MARK: - Factory
+
+    public func build(with _: Any?) throws -> {{ submodule_name }}ViewController {
+        let presenter = {{ submodule_name }}Presenter()
+        let viewController = {{ submodule_name }}ViewController(
+            interactor: {{ submodule_name }}Interactor(presenter: presenter),
+            router: router
+        )
+        presenter.viewController = viewController
+        return viewController
+    }
+}

@@ -1,41 +1,33 @@
-{% set presenter_name %}{{ module_name }}Presenter{% endset %}
-{% set view_input_protocol_name %}{{ module_name }}ViewInput{% endset %}
-{% set view_output_protocol_name %}{{ module_name }}ViewOutput{% endset %}
-{% set interactor_output_protocol_name %}{{ module_name }}InteractorOutput{% endset %}
-{% set router_output_protocol_name %}{{ module_name }}RouterOutput{% endset %}
-{% set module_input_protocol_name %}{{ module_name }}ModuleInput{% endset %}
-{% set module_output_protocol_name %}{{ module_name }}ModuleOutput{% endset %}
+{% set presenter_name %}{{ submodule_name }}Presenter{% endset %}
+{% set view_input_protocol_name %}{{ submodule_name }}ViewInput{% endset %}
+{% set view_output_protocol_name %}{{ submodule_name }}ViewOutput{% endset %}
+{% set interactor_input_protocol_name %}{{ submodule_name }}InteractorInput{% endset %}
+{% set interactor_output_protocol_name %}{{ submodule_name }}InteractorOutput{% endset %}
+{% set routes_protocol_name %}{{ submodule_name }}Routes{% endset %}
+//  Created by {{ developer_name }} on {{ current_date }}.
+
 import Foundation
+import SharedRouter
 
 final class {{ presenter_name }} {
+    var interactor: {{ interactor_input_protocol_name }}?
+    var router: {{ routes_protocol_name }}?
     weak var view: {{ view_input_protocol_name }}?
-    weak var moduleOutput: {{ module_output_protocol_name }}?
-    var interactor: {{ module_name }}InteractorInput?
-    var router: {{ module_name }}RouterInput?
 }
 
 // MARK: - {{ view_output_protocol_name }}
+
 extension {{ presenter_name }}: {{ view_output_protocol_name }} {
     func viewDidLoad(_ view: {{ view_input_protocol_name }}) {
-        view.configureViews()
     }
 }
 
 // MARK: - {{ interactor_output_protocol_name }}
+
 extension {{ presenter_name }}: {{ interactor_output_protocol_name }} {
 }
 
-// MARK: - {{ router_output_protocol_name }}
-extension {{ presenter_name }}: {{ router_output_protocol_name }} {
-}
+// MARK: - Private
 
-// MARK: - {{ module_input_protocol_name }}
-extension {{ presenter_name }}: {{ module_input_protocol_name }} {
-    func configureModule(output: {{ module_output_protocol_name }}?) {
-        self.moduleOutput = output
-    }
-}
-
-// MARK: - Private methods
 extension {{ presenter_name }} {
 }

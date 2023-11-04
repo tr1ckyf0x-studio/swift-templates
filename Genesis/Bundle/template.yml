@@ -1,0 +1,3 @@
+files:
+  - template: Code/bundle.swift.liquid
+    path: "{{ modules_path }}/{{ module_name }}/Bundle/Bundle+resourcesBundle.swift"

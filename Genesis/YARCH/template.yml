@@ -1,13 +1,15 @@
 files:
-  - template: Sources/Factory.swift
+  - template: Code/dataflow.swift.liquid
+    path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}DataFlow.swift"
+  - template: Code/factory.swift.liquid
     path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}Factory.swift"
-  - template: Sources/Interactor.swift
+  - template: Code/interactor.swift.liquid
     path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}Interactor.swift"
-  - template: Sources/Presenter.swift
+  - template: Code/presenter.swift.liquid
     path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}Presenter.swift"
-  - template: Sources/Routes.swift
+  - template: Code/routes.swift.liquid
     path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}Routes.swift"
-  - template: Sources/View.swift
-    path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}View.swift"
-  - template: Sources/ViewController.swift
+  - template: Code/viewcontroller.swift.liquid
     path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}ViewController.swift"
+  - template: Code/view.swift.liquid
+    path: "{{ modules_path }}/{{ module_name }}/{{ submodule_name }}/{{ submodule_name }}View.swift"

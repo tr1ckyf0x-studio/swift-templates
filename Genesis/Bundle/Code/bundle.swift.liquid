@@ -1,0 +1,25 @@
+//  Created by {{ developer_name }} on {{ current_date }}.
+
+import Foundation
+
+extension Bundle {
+    static var resourcesBundle: Bundle {
+        guard let bundle = BundleToken
+            .bundle
+            .url(forResource: "{{ module_name }}Resources", withExtension: "bundle")
+            .flatMap(Bundle.init(url:))
+        else { fatalError("Bundle not found.") }
+        return bundle
+    }
+}
+
+// swiftlint:disable:next convenience_type
+private final class BundleToken {
+
+    @available(*, unavailable)
+    init() { }
+
+    static var bundle: Bundle {
+        Bundle(for: BundleToken.self)
+    }
+}

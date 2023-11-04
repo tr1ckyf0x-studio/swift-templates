@@ -1,0 +1,15 @@
+//  Created by {{ developer_name }} on {{ current_date }}.
+
+protocol {{ submodule_name }}PresentationLogic: AnyObject {
+    func presentError(_ errorType: {{ submodule_name }}.ErrorType)
+}
+
+final class {{ submodule_name }}Presenter: {{ submodule_name }}PresentationLogic {
+    // MARK: - Properties
+
+    weak var viewController: {{ submodule_name }}DisplayLogic?
+
+    // MARK: - {{ submodule_name }}PresentationLogic
+
+    func presentError(_: {{ submodule_name }}.ErrorType) { }
+}

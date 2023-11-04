@@ -1,10 +1,31 @@
-{% set view_name %}{{ module_name }}View{% endset %}
+{% set view_name %}{{ submodule_name }}View{% endset %}
+{% set view_delegate_name %}{{ view_name }}Delegate{% endset %}
+//  Created by {{ developer_name }} on {{ current_date }}.
+
+import SnapKit
 import UIKit
 
+protocol {{ view_delegate_name }}: AnyObject {
+}
+
 final class {{ view_name }}: UIView {
+
+    // MARK: - Appearance
+
+    private let appearance = Appearance(); struct Appearance {
+    }
+
+    // MARK: - Properties
+
+    weak var delegate: {{ view_delegate_name }}?
+
+    // MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureViews()
+        addSubviews()
+        makeConstraints()
+        makeAppearance()
     }
 
     @available(*, unavailable)
@@ -13,9 +34,15 @@ final class {{ view_name }}: UIView {
     }
 }
 
-// MARK: - Private methods
+// MARK: - Private
+
 extension {{ view_name }} {
-    private func configureViews() {
-        backgroundColor = .white
+    private func addSubviews() {
+    }
+
+    private func makeConstraints() {
+    }
+
+    private func makeAppearance() {
     }
 }
