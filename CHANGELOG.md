@@ -1,4 +1,6 @@
-## [1.0.0] - Next version
+## [1.1.0] - Next version
+
+## [1.0.0] - 2025-04-30
 
 - Added AutoMockable template
 
