@@ -1,3 +1,7 @@
+## [1.0.0] - Next version
+
+- Added AutoMockable template
+
 ## [0.0.3] - 2024-02-01
 
 - Added MVP template
